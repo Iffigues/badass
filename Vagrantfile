@@ -29,9 +29,7 @@ Vagrant.configure("2") do |config|
     echo "gns3 installed."
     gsettings set org.gnome.shell favorite-apps "$(gsettings get org.gnome.shell favorite-apps | sed s/.$//), 'gns3.desktop', 'wireshark.desktop', 'org.gnome.Terminal.desktop']"
     echo "gns3, wireskark and terminal added to favorites."
-    sed -ie '/^XKBLAYOUT=/s/".*"/"fr"/' /etc/default/keyboard && udevadm trigger --subsystem-match=input --action=change
   SHELL
-  
   config.vm.provision :reload
 
 end

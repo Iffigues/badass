@@ -1,4 +1,4 @@
 FROM alpine:latest
 
-apk add -u busybox
-apk add busybox-extras
+RUN apk add -u busybox
+RUN apk add busybox-extras
