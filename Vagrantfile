@@ -29,7 +29,7 @@ Vagrant.configure("2") do |config|
     echo "gns3 installed."
     gsettings set org.gnome.shell favorite-apps "$(gsettings get org.gnome.shell favorite-apps | sed s/.$//), 'gns3.desktop', 'wireshark.desktop', 'org.gnome.Terminal.desktop']"
     echo "gns3, wireskark and terminal added to favorites."
-    sudo sh /home/vagrant/Desktop/badass/badass/v1/install.sh
+    sudo sh /home/vagrant/Desktop/badass/badass/v1/install.sh 
   SHELL
   #config.vm.provision "shell", privileged: true, path: "/home/vagrant/Desktop/badass/badass/v1/install.sh"
   config.vm.provision :reload
