@@ -1,0 +1,11 @@
+
+Bcp volant = Evpn 7432 route type 2 is for Mac
+Route type 3 inclus multicast > info from bum trafic
+Les 3 contrôleur ne savent pas que les autres existent. Pour savoir qu'ils existent, chacun envoie des route3 pour dire 'hey, j'existe , si tu as du trafic pour moi (vin) envoie le moi en fonction de la cible.
+
+Les adresse mac des hôtes sera envoyé via bcp
+Pour voir l'adresse mac d'une machine :
+Ifconfig eth1 (ou ethn) ou n est le matériel émulé.
+
+Ensuite, ajouter une adresse ip pour pouvoir ping
+Ip adds add 20.1.1.1/24 dev eth1
