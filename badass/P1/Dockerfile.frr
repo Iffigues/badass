@@ -1,7 +1,7 @@
 FROM frrouting/frr
 
 ADD frroutin_conf/frr.conf /etc/frr/daemons
+ADD ../* /
 
 RUN apk add -u busybox
 RUN apk add busybox-extras
-RUN /etc/init.d/frr start

@@ -1,7 +1,7 @@
 //Route reflector configuration
 
-//go to vtysh
-	conf t
+vtysh
+conf t
 
 hostname frr-1
 no ipv6 forwarding
