@@ -1,6 +1,5 @@
 FROM alpine:latest
 
-ADD ../* /
-
+ADD gns3_conf /
 RUN apk add -u busybox
 RUN apk add busybox-extras
