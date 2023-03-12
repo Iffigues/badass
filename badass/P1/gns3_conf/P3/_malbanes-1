@@ -1,5 +1,5 @@
 //Route reflector configuration
-
+arp -a
 vtysh
 conf t
 
