@@ -1,4 +1,4 @@
-arp -a
+#setup vxlan with no ip
 ip link add br0 type bridge
 ip link set dev br0 up
 ip link add name vxlan10 type vxlan id 10 dstport 4789
@@ -13,21 +13,21 @@ hostname frr-2
 no ipv6 forwarding
 !
 interface eth0
- ip address 10.1.1.2/30
+ ip address 10.1.1.2/30 # Point-to-point link with RR
  ip ospf area 0
 !
 interface lo
- ip address 1.1.1.2/32
+ ip address 1.1.1.2/32  # Unique lo of vtep device
  ip ospf area 0
 !
 
 router bgp 1
  neighbor 1.1.1.1 remote-as 1
- neighbor 1.1.1.1 update-source lo
+ neighbor 1.1.1.1 update-source lo  # Attach vtep to RR loopback adress
  !
  address-family l2vpn evpn
   neighbor 1.1.1.1 activate
-  advertise-all-vni
+  advertise-all-vni         # Share information about all the virtual networks to RR
  exit-address-family
 !
 router ospf
