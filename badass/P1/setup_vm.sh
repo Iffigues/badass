@@ -1,13 +1,10 @@
-    sudo add-apt-repository -y ppa:gns3/ppa
-    sudo apt-get update
-    DEBIAN_FRONTEND=noninteractive sudo apt-get install -y --no-install-recommends gdm3 ubuntu-desktop-minimal
-    echo "display manager and desktop installed."
-    
-    cd /tmp
-    curl https://raw.githubusercontent.com/GNS3/gns3-server/master/scripts/remote-install.sh > gns3-remote-install.sh
-    sudo bash gns3-remote-install.sh
-    echo "wireshark-common wireshark-common/install-setuid boolean true" | sudo debconf-set-selections
-    DEBIAN_FRONTEND=noninteractive sudo apt-get install -y gns3-gui
+    sudo apt-get install -y git
+    sudo apt-get install -y vim
+    sudo apt-get install -y curl
+    sudo apt-get install -y whireshark
+    sudo apt-get install -y Python3
+    sudo apt install python3-pip python3-pyqt5 python3-pyqt5.qtsvg python3-pyqt5.qtwebsockets qemu qemu-kvm qemu-utils libvirt-clients libvirt-daemon-system virtinst wireshark xtightvncviewer apt-transport-https ca-certificates curl gnupg2 software-properties-common -y
+    sudo pip3 install gns3-server gns3-gui
     sudo systemctl disable gns3.service
     sudo usermod -aG kvm,libvirt,docker,ubridge,wireshark "$USER"
     echo "gns3 installed."
