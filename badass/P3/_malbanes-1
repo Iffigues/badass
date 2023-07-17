@@ -2,7 +2,7 @@
 vtysh       # Open FRR daemons shell
 conf t      # Enter configuration mode
 
-hostname frr-1
+hostname malbanes-1
 no ipv6 forwarding  # Only ipv4 support
 !
 interface eth0      # Configure vteps ip address
@@ -32,5 +32,5 @@ router bgp 1                    # Configure the BGP routing protocol with AS num
 router ospf                     # Enter OSPF config
  network 0.0.0.0/0 area 0       # Advertise all routes in area 0 (backbone area of the OSPF network)
 !
-Line vty                        # Save settings
+line vty                        # Save settings
 !

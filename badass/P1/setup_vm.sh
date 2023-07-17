@@ -1,6 +1,11 @@
+    # Script d'installation pour une machine Ubuntu
     #su
     #adduser user42 sudo
     #exit
+    #Install gnome
+    #sudo apt install tasksel
+    #sudo tasksel install ubuntu-desktop
+    #Sudo reboot
     sudo apt-get install -y git
     sudo apt-get install -y vim
     sudo apt-get install -y curl

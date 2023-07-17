@@ -10,7 +10,7 @@ brctl addif br0 vxlan10
 vtysh
 conf t
 
-hostname frr-4
+hostname malbanes-4
 no ipv6 forwarding
 !
 interface eth2

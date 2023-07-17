@@ -2,11 +2,11 @@
 vtysh       # Open FRR daemons shell
 conf t      # Enter configuration mode
 
-hostname frr-1
-no ipv6 forwarding  # Only ipv4 support
+hostname malbanes-1
+no ipv6 forwarding
 !
-interface eth0      # Configure vteps ip address
- ip address 10.1.1.1/30 # Mask with range of 4 - minimum of 2 suitable ip adress
+interface eth0
+ ip address 10.1.1.1/30
 !
 interface eth1
  ip address 10.1.1.5/30
@@ -14,23 +14,23 @@ interface eth1
 interface eth2
  ip address 10.1.1.9/30
 !
-interface lo        # Configure the loopback interface unique
+interface lo
  ip address 1.1.1.1/32
 !
 
-router bgp 1                    # Configure the BGP routing protocol with AS number 1 (like identifier)
- neighbor ibgp peer-group       # Configure internal BGP peer group
- neighbor ibgp remote-as 1      # Set the remote AS number for the iBGP peer group
- neighbor ibgp update-source lo # Set the update source for BGP to the loopback interface
- bgp listen range 1.1.1.0/29 peer-group ibgp # Set up BGP to listen on the IP range (0-7 lo)
+router bgp 1
+ neighbor ibgp peer-group
+ neighbor ibgp remote-as 1
+ neighbor ibgp update-source lo
+ bgp listen range 1.1.1.0/29 peer-group ibgp
  !
- address-family l2vpn evpn          # Configuration for L2VPN EVPN address family
-  neighbor ibgp activate            # Activate iBGP neighbor
-  neighbor ibgp route-reflector-client  # Define ibgp as RR
+ address-family l2vpn evpn
+  neighbor ibgp activate
+  neighbor ibgp route-reflector-client
  exit-address-family
 !
-router ospf                     # Enter OSPF config
- network 0.0.0.0/0 area 0       # Advertise all routes in area 0 (backbone area of the OSPF network)
+router ospf
+ network 0.0.0.0/0 area 0
 !
-Line vty                        # Save settings
+line vty
 !
