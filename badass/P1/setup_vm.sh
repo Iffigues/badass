@@ -11,7 +11,5 @@
     sudo add-apt-repository -y ppa:gns3/ppa
     sudo apt-get update
     sudo apt-get install gns3-server gns3-gui
-    curl https://raw.githubusercontent.com/GNS3/gns3-server/master/scripts/remote-install.sh > gns3-remote-install.sh
-    sudo bash gns3-remote-install.sh
     sudo usermod -aG kvm,libvirt,ubridge,docker,wireshark "$USER"
     echo "gns3 installed."
